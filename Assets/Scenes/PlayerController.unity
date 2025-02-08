@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  minimumDistanceToTarget: 1
+  minimumDistanceToTarget: 2
   target: {fileID: 104775297}
 --- !u!4 &1251228008
 Transform:

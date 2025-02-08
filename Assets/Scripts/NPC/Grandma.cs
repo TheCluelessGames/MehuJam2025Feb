@@ -20,7 +20,27 @@ public class Grandma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FollowTarget();
+        if(grandmaState == 0)
+        {
+            FollowTarget();
+        }
+
+        else if(grandmaState == 1)
+        {
+            Wait();
+        }
+
+        if (Input.GetButtonDown("GrandmaCommand"))
+        {
+            if (grandmaState == 0)
+            {
+                grandmaState = 1;
+            }
+            else
+            {
+                grandmaState = 0;
+            }
+        }
     }
 
     private void FollowTarget()
@@ -29,6 +49,11 @@ public class Grandma : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+    }
+
+    private void Wait()
+    {
+        transform.position = transform.position;
     }
 
     public void SetTarget(Transform targetTransform)
