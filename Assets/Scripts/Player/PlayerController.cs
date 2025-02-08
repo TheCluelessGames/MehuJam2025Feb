@@ -22,10 +22,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CapsuleCollider2D playerCollider;
 
+    EventManager eventManager;
+
     // Start is called before the first frame update
     void Start()
     {
         playerEnabled = true;
+        eventManager = FindObjectOfType<EventManager>();
     }
 
     // Update is called once per frame
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerDeath()
     {
         playerEnabled = false;
+        eventManager.ShowGameOver();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

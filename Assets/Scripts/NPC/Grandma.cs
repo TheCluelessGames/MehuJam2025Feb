@@ -13,6 +13,12 @@ public class Grandma : MonoBehaviour
 
     [SerializeField] private Transform target;
 
+    EventManager eventManager;
+
+    private void Awake()
+    {
+        eventManager = FindObjectOfType<EventManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -70,6 +76,7 @@ public class Grandma : MonoBehaviour
 
     private void GrandmaDeath()
     {
+        eventManager.ShowGameOver();
         Destroy(gameObject);    
     }
 }
