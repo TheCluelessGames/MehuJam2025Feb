@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float terminalVelocity = -30;
     [SerializeField] private float fallMultiplier = 4.5f;
 
+
     Vector2 vecGravity;
 
     [SerializeField] private Transform groundCheck;
@@ -20,10 +21,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CapsuleCollider2D playerCollider;
 
+    EventManager eventManager;
+    GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        eventManager = FindObjectOfType<EventManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -31,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("PrincessJump"))
+        if (gameManager.gameState == GameStates.Game && Input.GetButtonDown("PrincessJump"))
         {
             if (IsGrounded())
             {
@@ -55,7 +60,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * playerSpeed, rb.velocity.y);
+        if (gameManager.gameState == GameStates.Game)
+        {
+            rb.velocity = new Vector2(horizontal * playerSpeed, rb.velocity.y);
+        }
+
         FinalCollisionCheck();
     }
 
@@ -83,5 +92,18 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+    }
+
+    private void PlayerDeath()
+    {
+        eventManager.ShowGameOver();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            PlayerDeath();
+        }
     }
 }

@@ -11,26 +11,29 @@ public class Grandma : MonoBehaviour
 
     [SerializeField] private Transform target;
 
-    // Start is called before the first frame update
-    void Start()
+    EventManager eventManager;
+    GameManager gameManager;
+
+    private void Awake()
     {
-        
+        eventManager = FindObjectOfType<EventManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(grandmaState == 0)
+        if(gameManager.gameState == GameStates.Game && grandmaState == 0)
         {
             FollowTarget();
         }
 
-        else if(grandmaState == 1)
+        else if(gameManager.gameState == GameStates.Game && grandmaState == 1)
         {
             Wait();
         }
 
-        if (Input.GetButtonDown("GrandmaCommand"))
+        if (gameManager.gameState == GameStates.Game && Input.GetButtonDown("GrandmaCommand"))
         {
             if (grandmaState == 0)
             {
@@ -41,6 +44,7 @@ public class Grandma : MonoBehaviour
                 grandmaState = 0;
             }
         }
+
     }
 
     private void FollowTarget()
@@ -59,5 +63,19 @@ public class Grandma : MonoBehaviour
     public void SetTarget(Transform targetTransform)
     {
         target = targetTransform;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            GrandmaDeath();
+        }
+    }
+
+    private void GrandmaDeath()
+    {
+        eventManager.ShowGameOver();
+        Destroy(gameObject);    
     }
 }
