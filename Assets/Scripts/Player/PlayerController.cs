@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float terminalVelocity = -30;
     [SerializeField] private float fallMultiplier = 4.5f;
 
-    [SerializeField] private bool playerEnabled;
 
     Vector2 vecGravity;
 
@@ -23,12 +22,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CapsuleCollider2D playerCollider;
 
     EventManager eventManager;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerEnabled = true;
         eventManager = FindObjectOfType<EventManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (playerEnabled && Input.GetButtonDown("PrincessJump"))
+        if (gameManager.gameState == GameStates.Game && Input.GetButtonDown("PrincessJump"))
         {
             if (IsGrounded())
             {
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerEnabled)
+        if (gameManager.gameState == GameStates.Game)
         {
             rb.velocity = new Vector2(horizontal * playerSpeed, rb.velocity.y);
         }
@@ -96,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerDeath()
     {
-        playerEnabled = false;
         eventManager.ShowGameOver();
     }
 

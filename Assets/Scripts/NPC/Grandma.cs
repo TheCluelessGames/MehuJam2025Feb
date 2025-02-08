@@ -9,31 +9,31 @@ public class Grandma : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float minimumDistanceToTarget;
 
-    [SerializeField] private bool grandmaDead;
-
     [SerializeField] private Transform target;
 
     EventManager eventManager;
+    GameManager gameManager;
 
     private void Awake()
     {
         eventManager = FindObjectOfType<EventManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!grandmaDead && grandmaState == 0)
+        if(gameManager.gameState == GameStates.Game && grandmaState == 0)
         {
             FollowTarget();
         }
 
-        else if(!grandmaDead && grandmaState == 1)
+        else if(gameManager.gameState == GameStates.Game && grandmaState == 1)
         {
             Wait();
         }
 
-        if (!grandmaDead && Input.GetButtonDown("GrandmaCommand"))
+        if (gameManager.gameState == GameStates.Game && Input.GetButtonDown("GrandmaCommand"))
         {
             if (grandmaState == 0)
             {
@@ -69,7 +69,6 @@ public class Grandma : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Hazard"))
         {
-            grandmaDead = true;
             GrandmaDeath();
         }
     }
