@@ -9,28 +9,25 @@ public class Grandma : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float minimumDistanceToTarget;
 
+    [SerializeField] private bool grandmaDead;
+
     [SerializeField] private Transform target;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(grandmaState == 0)
+        if(!grandmaDead && grandmaState == 0)
         {
             FollowTarget();
         }
 
-        else if(grandmaState == 1)
+        else if(!grandmaDead && grandmaState == 1)
         {
             Wait();
         }
 
-        if (Input.GetButtonDown("GrandmaCommand"))
+        if (!grandmaDead && Input.GetButtonDown("GrandmaCommand"))
         {
             if (grandmaState == 0)
             {
@@ -41,6 +38,7 @@ public class Grandma : MonoBehaviour
                 grandmaState = 0;
             }
         }
+
     }
 
     private void FollowTarget()
@@ -59,5 +57,19 @@ public class Grandma : MonoBehaviour
     public void SetTarget(Transform targetTransform)
     {
         target = targetTransform;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            grandmaDead = true;
+            GrandmaDeath();
+        }
+    }
+
+    private void GrandmaDeath()
+    {
+        Destroy(gameObject);    
     }
 }
