@@ -334,6 +334,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6393462610990871872, guid: 0a65349976b53994392b0fe2a95a56a2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8889977235934199503, guid: 0a65349976b53994392b0fe2a95a56a2, type: 3}
       propertyPath: m_Name
       value: Prince_headandbody
@@ -356,6 +360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 743915180501250839}
     m_Modifications:
+    - target: {fileID: 4703118037561127604, guid: be1b19c19b204f14e9f72be21a92f6eb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6419825451027766041, guid: be1b19c19b204f14e9f72be21a92f6eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.387
