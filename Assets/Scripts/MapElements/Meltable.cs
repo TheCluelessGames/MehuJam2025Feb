@@ -33,7 +33,7 @@ public class Meltable : MonoBehaviour
         redValue = Mathf.Clamp(redValue, 0f, 1f);
 
         Color currentColor = spriteRenderer.color;
-        spriteRenderer.color = new Color(redValue, currentColor.g, currentColor.b, currentColor.a);
+        spriteRenderer.color = new Color(redValue, 1- redValue, 1 - redValue, currentColor.a);
         
 
         if (redValue >= maxLimit)

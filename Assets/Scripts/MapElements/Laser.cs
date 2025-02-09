@@ -58,7 +58,8 @@ public class Laser : MonoBehaviour
         {
             if (hit.collider.CompareTag("Chain"))
             {
-                hit.collider.gameObject.GetComponent<Meltable>().IncreaseRedValue(0.001f);   
+                hit.collider.gameObject.GetComponent<Meltable>().IncreaseRedValue(0.001f);
+                Debug.Log(hit.collider.gameObject.name + " is hit");
             }
         }
         catch (Exception e) { }

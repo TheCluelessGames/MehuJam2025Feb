@@ -114,7 +114,6 @@ public class Grandma : MonoBehaviour
 
     private void ActivateGrandma()
     {
-        bfg.SetActive(true);
         grandmaState = previousGrandmaState;
     }
 }
