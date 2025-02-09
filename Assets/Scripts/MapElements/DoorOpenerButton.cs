@@ -8,7 +8,7 @@ public class DoorOpenerButton : MonoBehaviour, IInteractable
     [SerializeField] DoorOpener doorOpener;
     bool playerHere, grandmaHere;
     EventManager eventManager;
-
+    public InteractableButton button;
     private void Start()
     {
         eventManager = FindAnyObjectByType<EventManager>();
@@ -30,11 +30,13 @@ public class DoorOpenerButton : MonoBehaviour, IInteractable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            button.ActivateButton();
             playerHere = true;
         }
 
         if (collision.gameObject.CompareTag("Grandma"))
         {
+            button.ActivateButton();
             grandmaHere = true;
         }
     }
