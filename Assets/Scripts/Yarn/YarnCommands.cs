@@ -15,11 +15,17 @@ public class YarnCommands : MonoBehaviour
         dialogueRunner = FindObjectOfType<DialogueRunner>();
 
         dialogueRunner.AddCommandHandler("activate_grandma", ActivateGrandma);
+        dialogueRunner.AddCommandHandler("merchant_idle", MerchantIdle);
     }
 
     public void ActivateGrandma()
     {
         eventManager.GrandmaStoppingTalking();
+    }
+
+    public void MerchantIdle()
+    {
+        eventManager.MerchantIdle();    
     }
 
     

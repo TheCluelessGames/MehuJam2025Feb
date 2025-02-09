@@ -16,9 +16,11 @@ Grandma: I'll take one minigun for my Granddaughter
 Grandma: And one holy egg hand grenade for me please.
 Merchant: Come back anytime.
 <<activate_grandma>>
+<<merchant_idle>>
 ===
 
 title: MerchantDefault
 ---
 Merchant: Come back anytime.
+<<merchant_idle>>
 ===

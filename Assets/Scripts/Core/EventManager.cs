@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     public event Action onStopCurrentDialogue;
     public event Action onGrandmaTalking;
     public event Action onGrandmaStoppingTalking;
+    public event Action onMerchantIdle;
 
     public void ShowGameOver() => onShowGameOver?.Invoke();
     public void ShowVictory() => onShowVictory?.Invoke();   
@@ -18,4 +19,5 @@ public class EventManager : MonoBehaviour
     public void StopCurrentDialogue() => onStopCurrentDialogue?.Invoke();
     public void GrandmaTalking() => onGrandmaTalking?.Invoke();
     public void GrandmaStoppingTalking() => onGrandmaStoppingTalking?.Invoke();
+    public void MerchantIdle() => onMerchantIdle?.Invoke(); 
 }
