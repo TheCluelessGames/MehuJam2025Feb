@@ -14,9 +14,19 @@ public class Grandma : MonoBehaviour
     EventManager eventManager;
     GameManager gameManager;
 
-    private void Awake()
+    private void OnEnable()
     {
         eventManager = FindObjectOfType<EventManager>();
+        eventManager.onGrandmaTalking += GrandmaTalks;
+    }
+
+    private void OnDisable()
+    {
+        eventManager.onGrandmaTalking -= GrandmaTalks;
+    }
+
+    private void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -81,5 +91,10 @@ public class Grandma : MonoBehaviour
     {
         eventManager.ShowGameOver();
         Destroy(gameObject);    
+    }
+
+    private void GrandmaTalks()
+    {
+        grandmaState = 1;
     }
 }
