@@ -11,8 +11,11 @@ public class Platform : MonoBehaviour
 
     [SerializeField] float moveSpeed = 5.0f;
 
-    private bool movingRight = true;
-
+    private bool canmove,movingRight = true;
+    private void Awake()
+    {
+        StartPlatform();
+    }
     private void FixedUpdate()
     {
         if (movingRight)
@@ -26,13 +29,22 @@ public class Platform : MonoBehaviour
 
     }
 
+    public void StartPlatform()
+    {
+        canmove = true;
+    }
+
     private void MovePlatform(Transform target)
     {
-        movingPlatform.transform.position = Vector3.MoveTowards(movingPlatform.transform.position,
-            target.transform.position, moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(movingPlatform.position, target.position) < 0.1f)
+        if (canmove)
         {
-            movingRight = !movingRight;
+            movingPlatform.transform.position = Vector3.MoveTowards(movingPlatform.transform.position,
+                target.transform.position, moveSpeed * Time.deltaTime);
+            if (Vector3.Distance(movingPlatform.position, target.position) < 0.01f)
+            {
+                canmove = false;
+                movingRight = !movingRight;
+            }
         }
     }
 }
