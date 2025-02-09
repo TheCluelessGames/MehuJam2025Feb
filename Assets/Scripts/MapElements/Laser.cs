@@ -13,9 +13,12 @@ public class Laser : MonoBehaviour
     public bool isFacingRight = true;
     RaycastHit2D hit;
 
+    PlayerController controller;
+
     // Start is called before the first frame update
     void Awake()
     {
+        controller = FindAnyObjectByType<PlayerController>();
         lineRenderer.enabled = false;
         lineRenderer.useWorldSpace = true;
     }
@@ -34,7 +37,7 @@ public class Laser : MonoBehaviour
 
     public void ShootLaser()
     {
-
+        isFacingRight = controller.isFacingRight;
         if (isFacingRight)
         {
             hit = Physics2D.Raycast(start.transform.position, Vector2.right, maxDistance, layerMask);

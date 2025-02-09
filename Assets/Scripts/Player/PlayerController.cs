@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float terminalVelocity = -30;
     [SerializeField] private float fallMultiplier = 4.5f;
 
-    private bool isFacingRight;
+    public bool isFacingRight;
 
     Vector2 vecGravity;
 
