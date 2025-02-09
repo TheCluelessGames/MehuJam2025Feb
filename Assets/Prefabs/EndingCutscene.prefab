@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8102315316095841127}
   - component: {fileID: 6257986151284678018}
-  - component: {fileID: 7894031866576435381}
   m_Layer: 0
   m_Name: GunTrigger
   m_TagString: Untagged
@@ -78,19 +77,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
---- !u!114 &7894031866576435381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237575486754624285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ffb37c75db2243478d0eead0b9d6c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bfg: {fileID: 9068362959673867877}
 --- !u!1 &9068362959673867877
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorCiken: {fileID: 1511795446961506854}
   animatorGril: {fileID: 2664652735512197902}
+  grannyAnim: {fileID: 0}
 --- !u!1001 &983369989861756561
 PrefabInstance:
   m_ObjectHideFlags: 0

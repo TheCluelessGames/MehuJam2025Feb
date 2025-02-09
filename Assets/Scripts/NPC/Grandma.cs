@@ -6,7 +6,6 @@ public class Grandma : MonoBehaviour
 {
     private int grandmaState;
     private int previousGrandmaState;
-    public GameObject bfg;
 
     [SerializeField] private float speed;
     [SerializeField] private float minimumDistanceToTarget;
