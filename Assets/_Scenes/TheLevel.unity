@@ -2413,6 +2413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Merchant
       objectReference: {fileID: 0}
+    - target: {fileID: 2543912358964557503, guid: 0e30a4e1889249046a2630e618f4ab79, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5939881235599260420, guid: 0e30a4e1889249046a2630e618f4ab79, type: 3}
       propertyPath: animator
       value: 
