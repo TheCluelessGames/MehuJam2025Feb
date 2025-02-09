@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ElevatorButton : MonoBehaviour
+public class InteractableButton : MonoBehaviour
 {
 
     public List<ScriptMethodSelector> methodSelectors = new List<ScriptMethodSelector>();
