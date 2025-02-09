@@ -17,12 +17,14 @@ public class GameManager : MonoBehaviour
 
         eventManager.onShowGameOver += SetGameOverState;
         eventManager.onStartDialogue += StartDialogue;
+        eventManager.onStopCurrentDialogue += StopPreviousDialogue;
     }
 
     private void OnDisable()
     {
         eventManager.onShowGameOver -= SetGameOverState;
         eventManager.onStartDialogue -= StartDialogue;
+        eventManager.onStopCurrentDialogue -= StopPreviousDialogue;
     }
 
     private void Awake()
@@ -38,5 +40,10 @@ public class GameManager : MonoBehaviour
     private void StartDialogue(string node)
     {
         dialogueRunner.StartDialogue(node);
+    }
+
+    private void StopPreviousDialogue()
+    {
+        dialogueRunner.Stop();
     }
 }
