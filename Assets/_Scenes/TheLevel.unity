@@ -11655,8 +11655,8 @@ EdgeCollider2D:
   m_Points:
   - {x: 11.63627, y: -19.859354}
   - {x: 11.797142, y: 4.1898823}
-  - {x: 26.95586, y: 4.4702873}
-  - {x: 26.987667, y: 29.742683}
+  - {x: 25.187582, y: 4.4702873}
+  - {x: 25.115372, y: 30.002724}
   - {x: 10.228152, y: 29.650644}
   - {x: 10.251551, y: 69.979675}
   - {x: -43.125343, y: 69.95453}
@@ -13036,7 +13036,7 @@ Transform:
   m_GameObject: {fileID: 2949822411036497498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.6818, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13051,7 +13051,7 @@ Transform:
   m_GameObject: {fileID: 2949822411461348938}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.6818, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13066,7 +13066,7 @@ Transform:
   m_GameObject: {fileID: 2989092942037706338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.03, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 4.6818, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13081,7 +13081,7 @@ Transform:
   m_GameObject: {fileID: 2989092942447787634}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 20.29, z: 0}
   m_LocalScale: {x: 4.6818, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13171,6 +13171,10 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 626178491}
+    - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
+      propertyPath: togleable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
       propertyPath: canBePressed
       value: 1
@@ -13321,12 +13325,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 152041300}
     - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
+      propertyPath: togleable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
       propertyPath: canBePressed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
       propertyPath: methodSelectors.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
       propertyPath: methodSelector.targetObject
@@ -13362,7 +13370,7 @@ PrefabInstance:
       objectReference: {fileID: 381089400459129355}
     - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
       propertyPath: methodSelectors.Array.data[1].selectedMethod
-      value: ToggleButtonSprite
+      value: ActivateButton
       objectReference: {fileID: 0}
     - target: {fileID: 2526382826343875070, guid: 9cc744bef3d48a24aa41f3a5c2cc8e12, type: 3}
       propertyPath: methodSelectors.Array.data[1].selectedScript
