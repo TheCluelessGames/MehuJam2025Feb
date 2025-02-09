@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float terminalVelocity = -30;
     [SerializeField] private float fallMultiplier = 4.5f;
 
+    private bool isFacingRight;
 
     Vector2 vecGravity;
 
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour
         {
              rb.velocity -= vecGravity * fallMultiplier * 1.5f * Time.deltaTime;  
         }
+
+        Flip();
 
     }
 
@@ -105,5 +108,17 @@ public class PlayerController : MonoBehaviour
         {
             PlayerDeath();
         }
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+
     }
 }

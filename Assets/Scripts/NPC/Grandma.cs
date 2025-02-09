@@ -61,6 +61,16 @@ public class Grandma : MonoBehaviour
             }
         }
 
+        //flip
+        if (target.position.x < this.transform.position.x)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
     }
 
     private void FollowTarget()
