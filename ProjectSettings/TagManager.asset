@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Hazard
   - Grandma
-  - Chain
   layers:
   - Default
   - TransparentFX

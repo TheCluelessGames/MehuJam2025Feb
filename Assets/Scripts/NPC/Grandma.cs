@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grandma : MonoBehaviour
 {
     private int grandmaState;
+    private int previousGrandmaState;
 
     [SerializeField] private float speed;
     [SerializeField] private float minimumDistanceToTarget;
@@ -14,9 +15,20 @@ public class Grandma : MonoBehaviour
     EventManager eventManager;
     GameManager gameManager;
 
-    private void Awake()
+    private void OnEnable()
     {
         eventManager = FindObjectOfType<EventManager>();
+        eventManager.onGrandmaTalking += GrandmaTalks;
+        eventManager.onGrandmaStoppingTalking += ActivateGrandma;
+    }
+
+    private void OnDisable()
+    {
+        eventManager.onGrandmaTalking -= GrandmaTalks;
+    }
+
+    private void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -81,5 +93,16 @@ public class Grandma : MonoBehaviour
     {
         eventManager.ShowGameOver();
         Destroy(gameObject);    
+    }
+
+    private void GrandmaTalks()
+    {
+        previousGrandmaState = grandmaState;
+        grandmaState = 1;
+    }
+
+    private void ActivateGrandma()
+    {
+        grandmaState = previousGrandmaState;
     }
 }
