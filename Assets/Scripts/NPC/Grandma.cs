@@ -38,10 +38,12 @@ public class Grandma : MonoBehaviour
             if (grandmaState == 0)
             {
                 grandmaState = 1;
+                eventManager.StartDialogue("WaitCommand");
             }
             else
             {
                 grandmaState = 0;
+                eventManager.StartDialogue("FollowCommand");
             }
         }
 
