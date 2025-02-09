@@ -8,7 +8,7 @@ public class InteractableButton : MonoBehaviour
 
     public List<ScriptMethodSelector> methodSelectors = new List<ScriptMethodSelector>();
     public GameObject text,button;
-    public bool canBePressed;
+    public bool canBePressed, togleable;
     private bool inRange, isActive;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,10 @@ public class InteractableButton : MonoBehaviour
 
     private void Update()
     {
+        if (togleable)
+        {
+            canBePressed = true;
+        }
         if (Input.GetKeyDown(KeyCode.F) && inRange && canBePressed)
         {
             foreach (var methodSelector in methodSelectors)
@@ -41,7 +45,10 @@ public class InteractableButton : MonoBehaviour
     {
         canBePressed = true;
     }
-
+    public void AlwaysActive()
+    {
+        togleable = true;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && canBePressed)
