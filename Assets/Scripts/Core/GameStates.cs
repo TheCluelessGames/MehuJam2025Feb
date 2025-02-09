@@ -5,5 +5,6 @@ using UnityEngine;
 public enum GameStates
 {
     Game,
-    GameOver
+    GameOver,
+    Victory
 }
